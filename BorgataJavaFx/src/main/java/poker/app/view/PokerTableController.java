@@ -324,6 +324,7 @@ public class PokerTableController {
 
 		// Create the parent transition
 		SequentialTransition tranDealCards = new SequentialTransition();
+		SequentialTransition showBestCards = new SequentialTransition();
 
 		// Figure the action based on the game, state of game
 		Action act = new Action(gme, iCardDrawnPlayer, iCardDrawnCommon, iDrawCount);
@@ -397,10 +398,20 @@ public class PokerTableController {
 				BestPlayerHands.add(hBestHand);
 			}
 
+			//winner
 			Hand WinningHand = Hand.PickBestHand(BestPlayerHands);
 			Player WinningPlayer = (Player) hsPlayerHand.get(WinningHand);
+			
+			//alert type
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Game Conclusion");
+			alert.setContentText("The winner is Player " + WinningPlayer.getiPlayerPosition());
+			alert.showAndWait();
+			
 			System.out.println("Winning Player Position: " + WinningPlayer.getiPlayerPosition());
 			SetGameControls(eGameState.EndOfGame);
+			
+			
 
 		} else {
 			if (iCardDrawnPlayer + iCardDrawnCommon + 2 >= gme.getRule().getTotalCardsToDraw()) {

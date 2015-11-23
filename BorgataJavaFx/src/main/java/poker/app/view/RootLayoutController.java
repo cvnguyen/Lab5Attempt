@@ -4,6 +4,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import enums.eGame;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -13,9 +14,13 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.FileChooser;
 import poker.app.MainApp;
+import pokerBase.Action;
+import pokerBase.GamePlay;
+import pokerBase.Rule;
 
 /**
  * The controller for the root layout. The root layout provides the basic
@@ -31,6 +36,20 @@ public class RootLayoutController implements Initializable {
 
     @FXML
     private Menu mnuGame;
+    @FXML
+    private RadioMenuItem FiveCardDraw;
+    @FXML
+    private RadioMenuItem FiveCardJoker;
+    @FXML
+    private RadioMenuItem FiveCardWilds;
+    @FXML
+    private RadioMenuItem SevenCardDraw;
+    @FXML
+    private RadioMenuItem TexasHoldEm;
+    @FXML
+    private RadioMenuItem Omaha;
+  
+    
     
     @FXML
     private ToggleGroup tglGames;
@@ -65,8 +84,9 @@ public class RootLayoutController implements Initializable {
 		
 		
 	}
-    
-    
+	
+
+	
     /**
      * Is called by the main application to give a reference back to itself.
      * 
@@ -142,6 +162,55 @@ public class RootLayoutController implements Initializable {
 		this.tglGames = tglGames;
 	}
 
+	
+	
+	
+			//HANDLING GAMES
+    //figure out why this code is not working
+	@FXML
+	 private void handleFiveStud(){
+	    if (FiveCardDraw.isSelected()) {
+	    	mainApp.setiGameType(eGame.FiveStud);
+	    }
+	    	
+	}
+	
+	@FXML
+	private void handleFiveStudOneJoker(){
+    	if (FiveCardJoker.isSelected()) {
+    		mainApp.setiGameType(eGame.FiveStudOneJoker);
+    	}
+    	
+    }
+	@FXML
+    private void handleFiveStudTwoJoker(){
+    	if (FiveCardWilds.isSelected()) {
+    		mainApp.setiGameType(eGame.FiveStudTwoJoker);
+    	}
+    	
+    }
+	@FXML
+    private void handleTexasHoldEm(){
+    	if (TexasHoldEm.isSelected()) {
+    		mainApp.setiGameType(eGame.TexasHoldEm);
+    	}
+    	
+    }
+	@FXML
+    private void handleSevenDraw(){
+    	if (SevenCardDraw.isSelected()) {
+    		mainApp.setiGameType(eGame.SevenDraw);
+    	}
+    }
+	
+	@FXML
+    private void handleOmaha(){
+    	if (Omaha.isSelected()) {
+    		mainApp.setiGameType(eGame.Omaha);
+    	}
+    	
+    }
+	
 
 
 

@@ -11,15 +11,15 @@
         <menus>
           <Menu mnemonicParsing="false" text="Game">
             <items>
-                  <RadioMenuItem mnemonicParsing="false" text="5 Card Joker Poker">
+                  <RadioMenuItem fx:id="FiveCardJoker" mnemonicParsing="false" onAction="#handleFiveStud" text="5 Card Joker Poker">
                      <toggleGroup>
                         <ToggleGroup fx:id="tglGames" />
                      </toggleGroup></RadioMenuItem>
-                  <RadioMenuItem mnemonicParsing="false" text="5 Card Wild Card Joker" toggleGroup="$tglGames" />
-                  <RadioMenuItem mnemonicParsing="false" text="5 Card Draw" toggleGroup="$tglGames" />
-                  <RadioMenuItem mnemonicParsing="false" text="7 Card Draw" toggleGroup="$tglGames" />
-                  <RadioMenuItem mnemonicParsing="false" text="Texas Hold'em" toggleGroup="$tglGames" />
-                  <RadioMenuItem mnemonicParsing="false" text="Omaha" toggleGroup="$tglGames" />
+                  <RadioMenuItem fx:id="FiveCardWilds" mnemonicParsing="false" onAction="#handleFiveStudTwoJoker" text="5 Card Wild Card Joker" toggleGroup="$tglGames" />
+                  <RadioMenuItem fx:id="FiveCardDraw" mnemonicParsing="false" onAction="#handleFiveStud" text="5 Card Draw" toggleGroup="$tglGames" />
+                  <RadioMenuItem fx:id="SevenCardDraw" mnemonicParsing="false" onAction="#handleSevenDraw" text="7 Card Draw" toggleGroup="$tglGames" />
+                  <RadioMenuItem fx:id="TexasHoldEm" mnemonicParsing="false" onAction="#handleTexasHoldEm" text="Texas Hold'em" toggleGroup="$tglGames" />
+                  <RadioMenuItem fx:id="Omaha" mnemonicParsing="false" onAction="#handleOmaha" text="Omaha" toggleGroup="$tglGames" />
                   <RadioMenuItem mnemonicParsing="false" text="Close" toggleGroup="$tglGames" />
             </items>
           </Menu>
